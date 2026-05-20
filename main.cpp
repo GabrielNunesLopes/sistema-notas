@@ -19,7 +19,7 @@ int main() {
         cin >> qtdAlunos;
     } while (qtdAlunos < 1 || qtdAlunos > 20);
 
-    cin.ignore();
+    cin.ignore(); 
 
     for (int i = 0; i < qtdAlunos; i++) {
         cout << "Nome do aluno " << i + 1 << ": ";
@@ -49,9 +49,33 @@ int main() {
 
     //Saida
     cout << "\nAlunos cadastrados: " << endl;
+
     for (int i = 0; i < qtdAlunos; i++) {
         cout << " " << i + 1 << ". " << nomes[i] << endl;
     }
+
+    cout << "\n=== RELATORIO ===" << endl;
+    int aprovados = 0, recuperacao = 0, reprovados = 0;
+    
+    for (int i = 0; i < qtdAlunos; i++) {
+        cout << nomes[i] << " - Media: " << media[i] << " - ";
+        
+        if (media[i] >= 7.0) {
+            cout << "Aprovado" << endl;
+            aprovados++;
+        } else if (media[i] >= 5.0) {
+            cout << "Recuperacao" << endl;
+            recuperacao++;
+        } else {
+            cout << "Reprovado" << endl;
+            reprovados++;
+        }
+    }
+
+    cout << "\n=== RESUMO DO SISTEMA ===" << endl;
+    cout << "Alunos Aprovados: " << aprovados << endl;
+    cout << "Alunos em Recuperacao: " << recuperacao << endl;
+    cout << "Alunos Reprovados: " << reprovados << endl;
 
     return 0;
 }
