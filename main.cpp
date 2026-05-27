@@ -11,10 +11,32 @@ int main() {
     float notas[20][5];
     float media[20];
     int qtdDisciplinas;
+    int opcaoInicial;
 
     //Processamento
     cout << "=== SISTEMAS DE NOTAS 4.0 ===" << endl;
-    
+    cout << "1. - Novo relatorio - " << endl;
+    cout << "2. - Ver relatorio salvo - " << endl;
+    cout << "Escolha uma opcao: " << endl;
+    cin >> opcaoInicial;
+
+    // LEITURA DE ARQUIVO (COMMIT 1)
+    if(opcaoInicial == 2) {
+        ifstream leitura("Relatorio.txt");
+        if (leitura.is_open()){
+            string linha;
+            cout << "\n";
+            while (getline(leitura, linha)) {
+                cout << linha << endl;
+            }
+            leitura.close();
+        } else {
+        cout << "Nenhuma relatorio encontrado" << endl;
+        }
+        return 0;
+    }
+
+
     do {
         cout << "Quantidade de alunos (1 a 20): ";
         cin >> qtdAlunos;
