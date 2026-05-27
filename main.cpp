@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 int main() {
@@ -26,6 +27,7 @@ int main() {
         getline(cin, nomes[i]);
     }
 
+    // NOTAS E MEDIA (COMMIT 2)
     do {
         cout << "Quantidade de disciplinas(1 a 5): ";
         cin >> qtdDisciplinas;
@@ -77,5 +79,27 @@ int main() {
     cout << "Alunos em Recuperacao: " << recuperacao << endl;
     cout << "Alunos Reprovados: " << reprovados << endl;
 
+    ofstream arquivo("Relatorio.txt");
+
+    if (arquivo.is_open()){
+        arquivo << "=== RELATORIO ===" << endl;
+        for(int i = 0; i < qtdAlunos; i++) {
+            arquivo << nomes[i] << " - Media: " << media[i] << " - ";
+            if (media[i] >= 7){
+                arquivo << "Aprovado" << endl;
+            } else if (media[i] >= 5) {
+                arquivo << "Recuperacao" << endl;
+            } else {
+                arquivo << "Reprovado" << endl;
+            }
+        }
+        arquivo << "\nResumo: " << aprovados << " aprovados, " << recuperacao << " em recuperacao, " << reprovados << " reprovados." << endl;
+
+        arquivo.close();
+        cout << "\nRelatorio salvo em Relatorio.txt" << endl;
+    } else {
+        cout << "Erro ao criar" << endl;
+    }
+    
     return 0;
 }

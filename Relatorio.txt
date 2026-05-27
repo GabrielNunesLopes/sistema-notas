@@ -1,0 +1,7 @@
+=== RELATORIO ===
+biel - Media: 8 - Aprovado
+igor - Media: 2.4 - Reprovado
+lucas - Media: 5.2 - Recuperacao
+joao - Media: 8.2 - Aprovado
+
+Resumo: 2 aprovados, 1 em recuperacao, 1 reprovados.
