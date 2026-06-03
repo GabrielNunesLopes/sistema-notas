@@ -10,12 +10,14 @@ Um sistema simples e eficiente desenvolvido em **C++** para console, projetado p
 ## 🚀 Funcionalidades
 
 * **Menu Dinâmico:** Escolha entre iniciar um novo relatório ou abrir os dados da última execução.
+  **Cadastro de alunos e notas por disciplina**
 * **Validação de Entradas (Anti-Crash):** O sistema impede dados incorretos, forçando limites de notas e quantidades.
 * **Critérios de Avaliação Automáticos:**
   * 🟢 **Aprovado:** Média $\ge$ 7.0
   * 🟡 **Recuperação:** Média entre 5.0 e 6.9
   * 🔴 **Reprovado:** Média $<$ 5.0
-* **Persistência de Dados:** Gravação automática dos resultados no arquivo `Relatorio.txt`.
+* **Cálculos de medias (por aluno)** 
+* **Leitura de relatório salvo** O sistema lê e salva no arquivo `Relatorio.txt`.
 
 ---
 

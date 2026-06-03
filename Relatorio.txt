@@ -1,7 +1,7 @@
 === RELATORIO ===
-biel - Media: 8 - Aprovado
-igor - Media: 2.4 - Reprovado
-lucas - Media: 5.2 - Recuperacao
-joao - Media: 8.2 - Aprovado
+Data do relatorio: Wed Jun 03 07:51:34 2026
 
-Resumo: 2 aprovados, 1 em recuperacao, 1 reprovados.
+1 - Media: 4 - Reprovado
+G - Media: 7 - Aprovado
+
+Resumo: 1 aprovados, 0 em recuperacao, 1 reprovados.
