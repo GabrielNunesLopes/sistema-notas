@@ -7,17 +7,29 @@ Um sistema simples e eficiente desenvolvido em **C++** para console, projetado p
 
 ---
 
-## 🚀 Funcionalidades
+## 🚀 Funcionalidades Principais
 
-* **Menu Dinâmico:** Escolha entre iniciar um novo relatório ou abrir os dados da última execução.
-  **Cadastro de alunos e notas por disciplina**
-* **Validação de Entradas (Anti-Crash):** O sistema impede dados incorretos, forçando limites de notas e quantidades.
-* **Critérios de Avaliação Automáticos:**
-  * 🟢 **Aprovado:** Média $\ge$ 7.0
-  * 🟡 **Recuperação:** Média entre 5.0 e 6.9
-  * 🔴 **Reprovado:** Média $<$ 5.0
-* **Cálculos de medias (por aluno)** 
-* **Leitura de relatório salvo** O sistema lê e salva no arquivo `Relatorio.txt`.
+### 🎛️ Menu Dinâmico
+Ao iniciar, o sistema oferece uma interface de escolha interativa:
+1. **Novo Relatório:** Inicia um novo ciclo de cadastro de alunos, disciplinas e notas.
+2. **Abrir Última Execução:** Lê e exibe diretamente no terminal os dados salvos no arquivo `Relatorio.txt`.
+4. **Relatório de Reprovados:** Filtra e exibe os alunos que estão com status de reprovados a partir do arquivo `reprovados.txt`.
+
+### 🗂️ Cadastro e Cálculo Automatizado
+* Permite cadastrar até **20 alunos**.
+* Permite definir entre **1 e 5 disciplinas** por ciclo.
+* **Cálculo de Médias:** O sistema processa automaticamente a média aritmética individual de cada aluno com base nas disciplinas inseridas.
+
+### 📈 Critérios de Avaliação Automáticos
+O sistema analisa a média final de cada aluno de forma autônoma e atribui um status com base nos seguintes critérios pedagógicos:
+* 🟢 **Aprovado:** Média $\ge$ 7.0
+* 🟡 **Recuperação:** Média entre 5.0 e 6.9
+* 🔴 **Reprovado:** Média $<$ 5.0
+
+### 💾 Persistência de Dados e Relatórios
+Ao finalizar os cálculos, o sistema exporta e atualiza automaticamente dois arquivos de texto no mesmo diretório:
+* **`Relatorio.txt`:** Contém o relatório geral completo com data/hora da execução, médias de todos os alunos, destaques de **Maior e Menor Média** do grupo e um resumo estatístico total (quantidade de aprovados, recuperação e reprovados).
+* **`reprovados.txt`:** Um arquivo exclusivo que filtra apenas os alunos que não atingiram a nota mínima de 5.0, facilitando ações pedagógicas de apoio.
 
 ---
 
