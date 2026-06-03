@@ -7,7 +7,7 @@ Um sistema simples e eficiente desenvolvido em **C++** para console, projetado p
 
 ---
 
-##  Funcionalidades Principais
+##  Funcionalidades Principais
 
 ### Menu Dinâmico
 Ao iniciar, o sistema oferece uma interface de escolha interativa:
@@ -33,7 +33,7 @@ Ao finalizar os cálculos, o sistema exporta e atualiza automaticamente dois arq
 
 ---
 
-##  Regras de Negócio e Limites
+##  Regras de Negócio e Limites
 
 Para manter a integridade da memória e o controle de matrizes, o sistema obedece estritamente aos seguintes limites:
 
@@ -45,7 +45,7 @@ Para manter a integridade da memória e o controle de matrizes, o sistema obedec
 
 ---
 
-##  Como Compilar e Executar
+##  Como Compilar e Executar
 
 Certifique-se de ter um compilador para C++ (como o `g++`) instalado em sua máquina.
 
@@ -58,9 +58,9 @@ g++ main.cpp -o sistema_notas
 ./sistema_notas
 
 # No Windows (Prompt/PowerShell):
-./sistema_notas.exe
+./sistema_notas.exe```
 
-## Top contributors:
+## **Top contributors:**
 
 <a href="https://github.com/GabrielNunesLopes">
   <img src="https://github.com/GabrielNunesLopes.png" width="60px" style="border-radius: 50%;" alt="GabrielNunesLopes">
