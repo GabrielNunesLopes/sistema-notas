@@ -34,7 +34,7 @@ int main() {
         string linha;
         cout << "\n";
         while (getline(leitura, linha)) {
-            cout << linha << endl; // <--- CORRIGIDO AQUI (era 'line')
+            cout << linha << endl; // 
         }
         leitura.close();
     } else {
