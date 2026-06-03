@@ -21,25 +21,43 @@ int main() {
     cout << "Turma: LOPAL 2026 - SENAI-SP" << endl;
     cout << "\n1. - Novo relatorio - " << endl;
     cout << "2. - Ver relatorio salvo - " << endl;
+    // OPCIONAL C:
+    cout << "4. - Relatorio de reprovados (Arquivo) - " << endl;
     cout << "Escolha uma opcao: " << endl;
     cin >> opcaoInicial;
 
     // LEITURA DE ARQUIVO (COMMIT 1)
+    
     if(opcaoInicial == 2) {
-        ifstream leitura("Relatorio.txt");
+    ifstream leitura("Relatorio.txt");
+    if (leitura.is_open()){
+        string linha;
+        cout << "\n";
+        while (getline(leitura, linha)) {
+            cout << linha << endl; // <--- CORRIGIDO AQUI (era 'line')
+        }
+        leitura.close();
+    } else {
+        cout << "Nenhum relatorio encontrado" << endl;
+    }
+    return 0;
+}
+
+    // OPCIONAL C:
+    if(opcaoInicial == 4) {
+        ifstream leitura("reprovados.txt");
         if (leitura.is_open()){
             string linha;
-            cout << "\n";
+            cout << "\n=== CONTEUDO ATUAL DE REPROVADOS.TXT ===\n";
             while (getline(leitura, linha)) {
                 cout << linha << endl;
             }
             leitura.close();
         } else {
-        cout << "Nenhuma relatorio encontrado" << endl;
+            cout << "\nNenhum relatorio de reprovados encontrado. Crie um novo relatorio primeiro." << endl;
         }
         return 0;
     }
-
 
     do {
         cout << "Quantidade de alunos (1 a 20): ";
@@ -49,8 +67,15 @@ int main() {
     cin.ignore(); 
 
     for (int i = 0; i < qtdAlunos; i++) {
-        cout << "Nome do aluno " << i + 1 << ": ";
-        getline(cin, nomes[i]);
+        // OPCONAL A: Validação de Nome
+        do {
+            cout << "Nome do aluno " << i + 1 << ": ";
+            getline(cin, nomes[i]);
+            
+            if (nomes[i] == "") {
+                cout << "Erro: O nome nao pode ser vazio. Tente novamente.\n";
+            }
+        } while (nomes[i] == "");
     }
 
     // NOTAS E MEDIA (COMMIT 2)
@@ -100,11 +125,27 @@ int main() {
         }
     }
 
+    // OPCIONAL B: Destaque de Notas
+    int indiceMaior = 0;
+    int indiceMenor = 0;
+
+    for (int i = 1; i < qtdAlunos; i++) {
+        if (media[i] > media[indiceMaior]) {
+            indiceMaior = i;
+        }
+        if (media[i] < media[indiceMenor]) {
+            indiceMenor = i;
+        }
+    }
+    cout << "\nMaior media: " << nomes[indiceMaior] << " (" << media[indiceMaior] << ")" << endl;
+    cout << "Menor media: " << nomes[indiceMenor] << " (" << media[indiceMenor] << ")" << endl;
+
     cout << "\n=== RESUMO DO SISTEMA ===" << endl;
     cout << "Alunos Aprovados: " << aprovados << endl;
     cout << "Alunos em Recuperacao: " << recuperacao << endl;
     cout << "Alunos Reprovados: " << reprovados << endl;
 
+    // Salvando Relatório Geral
     ofstream arquivo("Relatorio.txt");
 
     if (arquivo.is_open()){
@@ -123,11 +164,25 @@ int main() {
             }
         }
         arquivo << "\nResumo: " << aprovados << " aprovados, " << recuperacao << " em recuperacao, " << reprovados << " reprovados." << endl;
-
         arquivo.close();
         cout << "\nRelatorio salvo em Relatorio.txt" << endl;
     } else {
-        cout << "Erro ao criar" << endl;
+        cout << "Erro ao criar Relatorio.txt" << endl;
+    }
+    
+    // OPCIONAL C: Geração do Relatório de Reprovados
+    ofstream arqReprovados("reprovados.txt");
+    if (arqReprovados.is_open()) {
+        arqReprovados << "=== RELATORIO DE REPROVADOS (Media < 5.0) ===" << endl;
+        for (int i = 0; i < qtdAlunos; i++) {
+            if (media[i] < 5.0) {
+                arqReprovados << nomes[i] << " - Media: " << media[i] << endl;
+            }
+        }
+        arqReprovados.close();
+        cout << "Relatorio de reprovados salvo em reprovados.txt" << endl;
+    } else {
+        cout << "Erro ao criar reprovados.txt" << endl;
     }
     
     return 0;
