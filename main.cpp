@@ -16,10 +16,10 @@ int main() {
 
     //Processamento
     cout << "=== SOBRE ===" << endl;
-    cout << "=== SISTEMAS DE NOTAS 4.1 ===" << endl;
+    cout << "\n=== SISTEMAS DE NOTAS 4.1 ===" << endl;
     cout << "Desenvolvido por: Gabriel Nunes Lopes" << endl;
     cout << "Turma: LOPAL 2026 - SENAI-SP" << endl;
-    cout << "1. - Novo relatorio - " << endl;
+    cout << "\n1. - Novo relatorio - " << endl;
     cout << "2. - Ver relatorio salvo - " << endl;
     cout << "Escolha uma opcao: " << endl;
     cin >> opcaoInicial;
